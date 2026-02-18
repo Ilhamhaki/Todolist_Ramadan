@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #0f2027, #0b1d2a 60%, #050d14);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.15), transparent 70%);
+    top: -150px;
+    right: -150px;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 650px;
+    padding: 40px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.12);
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 2.3em;
+    letter-spacing: 2px;
+    color: #fbd786;
+    margin-bottom: 10px;
+}
+
+.clock {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    opacity: .8;
+}
+
+.input-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+input {
+    flex: 1;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    outline: none;
+}
+
+button {
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, #fbd786, #c6a75e);
+    color: #000;
+}
+
+ul {
+    list-style: none;
+    padding: 0
+}
+
+li {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 18px;
+    border-radius: 20px;
+    margin: 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+li.completed {
+    text-decoration: line-through;
+    opacity: .45;
+}
+
+.task-text {
+    flex: 1;
+    cursor: pointer
+}
+
+.task-time {
+    font-size: .85em;
+    margin-left: 10px;
+    opacity: .7
+}
+
+.edit-btn {
+    background: #d4af37;
+    color: #000;
+    margin-right: 6px;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.delete-btn {
+    background: #7a1f1f;
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.progress-bar-container {
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #fbd786, #f7797d);
+    transition: width 0.4s ease;
+}
+
+
+.stats {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #fbd786;
+}
+
+.motivation {
+    margin-top: 10px;
+    text-align: center;
+    opacity: .8;
+    font-style: italic;
+}
+
+.modal {
+    backdrop-filter: blur(8px);
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    animation: fadeIn 0.6s ease;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+    position: relative;
+    background: #0b1d2a;
+    padding: 30px;
+    border-radius: 25px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.6em;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.25s ease;
+}
+
+.close:hover {
+    color: #fbd786;
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.container {
+    animation: fadeIn 1s ease;
+}
