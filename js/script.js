@@ -211,3 +211,43 @@ function checkOverdueTasks() {
 document.getElementById("taskInput").addEventListener("keypress", function (e) {
     if (e.key === "Enter") addTask();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("welcomeModal");
+    const modalText = document.getElementById("modalText");
+    const closeBtn = document.getElementById("closeModal");
+
+    // GANTI TANGGAL RAMADAN DI SINI
+    const RAMADAN_START = new Date("2026-02-18");
+
+    const today = new Date();
+    const diffTime = today.getTime() - RAMADAN_START.getTime();
+    const day = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+    let message = "";
+
+    if (day >= 1 && day <= 10) {
+        message =
+        "Ini awal perjalananmu. Bangun niat yang benar, kuatkan disiplin, dan jangan sia-siakan momentum yang jarang datang dua kali.";
+    } 
+    else if (day >= 11 && day <= 20) {
+        message =
+        "Semangat awal mungkin mulai menurun. Sekarang yang diuji adalah konsistensimu. Apakah kamu tetap serius saat tidak ada yang melihat?";
+    } 
+    else if (day >= 21 && day <= 30) {
+        message =
+        "Ramadan hampir berakhir. Jangan biarkan ia pergi tanpa perubahan nyata dalam dirimu. Waktu tidak bisa diulang. Gunakan hari ini sebaik mungkin.";
+    } 
+    else {
+        message =
+        "Setiap hari adalah kesempatan untuk memperbaiki diri. Jangan menunggu momen spesial untuk berubah.";
+    }
+
+    modalText.textContent = message;
+
+    modal.classList.add("show");
+
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+});

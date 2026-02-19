@@ -163,15 +163,25 @@ li.completed {
 }
 
 .modal {
-    backdrop-filter: blur(8px);
-    display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, .65);
+    backdrop-filter: blur(8px);
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 999;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
 }
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 .modal-content {
     animation: fadeIn 0.6s ease;
@@ -184,6 +194,15 @@ li.completed {
     width: 90%;
     text-align: center;
 }
+
+.modal-divider {
+    border: none;
+    height: 2px;
+    width: 80%;
+    margin: 15px auto 20px auto;
+    background: linear-gradient(to right, transparent, #ffcc00, transparent);
+}
+
 
 .close {
     position: absolute;
@@ -200,8 +219,6 @@ li.completed {
     transform: scale(1.2);
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
 }
-
-
 
 @keyframes fadeIn {
     from {
